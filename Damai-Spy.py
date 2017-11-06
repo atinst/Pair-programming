@@ -13,11 +13,11 @@ def damai(url, currPage=0):
         soup = BeautifulSoup(wb_data.text, 'html.parser')
         i = 0
         while True:
-                try:                        
+                try:
                         event = soup.select("#content_list  li  div.search_txt  h3 a")[i].text
                         time = soup.select("#content_list  li div.search_txt  p.search_txt_time.c3")[i].text
                         city = soup.select("#content_list  li div.search_txt  p.c1")[i].text
-                        prices = soup.select("#content_list  li  div.search_txt  p.search_txt_piao")[i].text                
+                        prices = soup.select("#content_list  li  div.search_txt  p.search_txt_piao")[i].text
                         print event, time, city, prices
                         print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
                         i+=1
@@ -25,8 +25,8 @@ def damai(url, currPage=0):
                         return
 while True:
         j = 1
-        while True:                
-                a = damai(url, j)             
+        while True:
+                a = damai(url, j)
                 j+=1
                 time.sleep(2)
                 if a != []:
