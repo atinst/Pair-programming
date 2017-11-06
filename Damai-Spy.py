@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 url = 'https://search.damai.cn/search.html'
+
 def damai(url, currPage=0):
         datas = {
                 'ctl':'演唱会',
@@ -12,6 +13,7 @@ def damai(url, currPage=0):
         wb_data = requests.post(url,datas)
         soup = BeautifulSoup(wb_data.text, 'html.parser')
         i = 0
+
         while True:
                 try:
                         event = soup.select("#content_list  li  div.search_txt  h3 a")[i].text
@@ -23,6 +25,7 @@ def damai(url, currPage=0):
                         i+=1
                 except Exception, e:
                         return
+
 while True:
         j = 1
         while True:
